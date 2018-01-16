@@ -6,7 +6,7 @@
 #    By: aparabos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/15 11:11:28 by aparabos          #+#    #+#              #
-#    Updated: 2018/01/15 16:02:22 by aparabos         ###   ########.fr        #
+#    Updated: 2018/01/16 12:55:22 by aparabos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ NAME = fdf
 LIBFT = ./libft/libft.a
 SRCS = main.c \
 	   ft_key.c \
-	   get_map.c 
+	   get_map.c \
+	   check_size.c
 OBJS = $(SRCS:.c=.o)
 MAKEFLAGS = s
 .PHONY: all fclean clean re

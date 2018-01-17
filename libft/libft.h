@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 12:12:03 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/15 16:50:19 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/17 13:27:09 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int					ft_error(char *str, int fd);
 int					ft_pow(int nb, int n);
 int					ft_sqrt(int nb);
 int					ft_factorial(int nb);
+int					ft_isabs(int c);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);

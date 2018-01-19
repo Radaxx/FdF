@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 17:06:34 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/19 10:38:49 by aparabos         ###   ########.fr       */
+/*   Created: 2018/01/19 10:13:26 by aparabos          #+#    #+#             */
+/*   Updated: 2018/01/19 10:41:12 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+char	**ft_freetab(char **tab)
 {
-	if (as)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	int		i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	ft_strdel(tab);
+	return (tab);
 }

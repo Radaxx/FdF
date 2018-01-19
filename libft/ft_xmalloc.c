@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_xmalloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 17:06:34 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/19 10:38:49 by aparabos         ###   ########.fr       */
+/*   Created: 2018/01/19 09:56:59 by aparabos          #+#    #+#             */
+/*   Updated: 2018/01/19 09:58:37 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strdel(char **as)
+void	*ft_xmalloc(size_t size)
 {
-	if (as)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	void	*res;
+
+	if (!(res = (void *)malloc(size)))
+		ft_error("Error: Malloc failed.\n", EXIT_FAILURE);
+	return (res);
 }

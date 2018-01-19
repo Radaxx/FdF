@@ -6,20 +6,23 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 15:14:30 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/19 11:32:39 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/19 13:56:02 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		check_width(t_env *env, char **unmodify_map)
+static int		check_width(t_env *env, char **unmodify_map)
 {
-	int			width;
+	int			i;
 
-	width = 0;
-	while (unmodify_map[width])
-		width++;
-	env->width = width;
+	i = 0;
+	while (unmodify_map[i])
+		i++;
+	if (i < env->width)
+		return (i);
+	else
+		return (env->width);
 }
 
 static void		check_height(t_env *env, char *argv)
@@ -67,16 +70,20 @@ static t_dot	**ft_map(t_dot **map, char **unmodify_map, t_env *env)
 		i++;
 	grid = (t_dot **)ft_xmalloc(sizeof(t_dot *) * (i + 1));
 	grid = copy_struct(map);
-	check_width(env, unmodify_map);
-	grid[i] = (t_dot *)ft_xmalloc(sizeof(t_dot));
+	//env->width = check_width(env, unmodify_map);
+	while (unmodify_map[j])
+		j++;
+	env->width = (j < env->width) ? j : env->width;
+	grid[i] = (t_dot *)ft_xmalloc(sizeof(t_dot) * j);
 	env->depth_min = ft_atoi(unmodify_map[0]);
 	env->depth_max = ft_atoi(unmodify_map[0]);
+	j = 0;
 	while (unmodify_map[j])
 	{
 		grid[i][j].z = ft_atoi(unmodify_map[j]);
 		j++;
 	}
-	grid[i] = NULL;
+	grid[i++] = NULL;
 	return (grid);
 }
 
@@ -101,7 +108,7 @@ void			get_map(t_env *env, char *av)
 	{
 		unmodify_map = ft_strsplit(line, ' ');
 		env->dot = ft_map(env->dot, unmodify_map, env);
+		ft_strdel(&line);
 	}
-	free(line);
 	close(fd);
 }

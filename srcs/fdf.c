@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:23:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/22 17:06:26 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/23 15:17:00 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,37 @@ static void		init_mlx(t_env *env)
 		ft_error("Error: MLX_NEW_WINDOW failed.\n", EXIT_FAILURE);
 }
 
-int		main(int ac, char **av)
+static int		expose_func(t_env *env)
 {
-	t_env	env;
+	draw(env);
+	return (0);
+}
+
+static void		var_set(t_env *env)
+{
+	env->zoom = 15;
+	env->x_move = 1000;
+	env->y_move = 600;
+	env->depth = -2;
+	env->dec_width = 1;
+	env->dec_height = 2;
+	env->width = 0;
+	env->height = 0;
+	env->x_rot = 0;
+}
+
+int				main(int ac, char **av)
+{
+	t_env		env;
 
 	if (ac != 2)
 		ft_error("Usage: ./fdf <map>\n", EXIT_FAILURE);
 	init_mlx(&env);
+	var_set(&env);
 	get_map(&env, av[1]);
+	set_var(&env);
 	mlx_key_hook(env.win, key_hook, &env);
+	mlx_expose_hook(env.win, expose_func, env);
 	mlx_loop(env.mlx);
 	return (0);
 }

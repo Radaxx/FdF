@@ -6,7 +6,7 @@
 #    By: aparabos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 14:14:39 by aparabos          #+#    #+#              #
-#    Updated: 2018/01/22 17:02:47 by aparabos         ###   ########.fr        #
+#    Updated: 2018/01/23 15:00:41 by aparabos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ D_SRCS = ./srcs/
 D_LIB = ./libft/
 D_INC = ./includes/
 SRCS = fdf.c \
-	   get_map.c
+	   get_map.c \
+	   set_var.c
 SUCCES_COLOR = \033[32m
 .PHONY: all clean fclean re
 

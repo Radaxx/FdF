@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:49:30 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/22 17:00:34 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/23 15:17:14 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,40 @@
 
 # include "../libft/libft.h"
 # include <mlx.h>
+# include <math.h>
 
 typedef struct		s_dot
 {
-	double		x;
-	double		y;
-	double		z;
+	double			x;
+	double			x_min;
+	double			x_max;
+	double			y;
+	double			y_min;
+	double			y_max;
+	double			z;
+	double			z_max;
 }					t_dot;
 
 typedef struct		s_env
 {
-	void	*mlx;
-	void	*win;
-	int		width;
-	int		height;
-	int		z_min;
-	int		z_max;
-	int		**map;
-	t_dot	**dot;
+	void			*mlx;
+	void			*win;
+	char			**u_map;
+	int				**map;
+	int				width;
+	int				height;
+	int				depth;
+	int				zoom;
+	int				x_move;
+	int				y_move;
+	double			x_rot;
+	double			dec_width;
+	double			dec_height;
+	t_dot			**dot;
 }					t_env;
 
-void	get_map(t_env *env, char *av);
-int		ft_key(int keycode, void *param);
+void				get_map(t_env *env, char *av);
+void				set_var(t_env *env);
+void				draw(t_env *env);
 
 #endif

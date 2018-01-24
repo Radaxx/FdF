@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:23:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:56:18 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:31 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void		var_set(t_env *env)
 {
 	env->color_1 = WHITE;
 	env->color_2 = BLUE;
-	env->zoom = 15;
+	env->zoom = 20;
 	env->x_move = 1000;
-	env->y_move = 600;
-	env->depth = -2;
+	env->y_move = 450;
+	env->depth = -3;
 	env->dec_width = 1;
 	env->dec_height = 2;
 	env->width = 0;
@@ -42,7 +42,7 @@ static void		var_set(t_env *env)
 	env->x_rot = 0;
 }
 
-int		expose_func(t_env *env)
+int				expose_func(t_env *env)
 {
 	draw(env);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:41:12 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:56:41 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:40:46 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		free_map(t_env *env)
 {
-	int		i;
+	int			i;
 
 	i = -1;
 	while (env->map[++i])
@@ -26,14 +26,14 @@ static void		free_map(t_env *env)
 	free(env->dot);
 }
 
-void		reload_win(t_env *env)
+void			reload_win(t_env *env)
 {
 	mlx_clear_window(env->mlx, env->win);
 	set_var(env);
 	expose_func(env);
 }
 
-void	key_move(int keycode, t_env *env)
+void			key_move(int keycode, t_env *env)
 {
 	if (keycode == ESCAPE)
 	{
@@ -47,4 +47,6 @@ void	key_move(int keycode, t_env *env)
 	keycode == DOWN_ARROW ? env->y_move -= 20 : env->y_move;
 	keycode == ZOOM_PLUS ? env->zoom += 2 : env->zoom;
 	keycode == ZOOM_MOINS ? env->zoom -= 2 : env->zoom;
+	keycode == DEPTH_PLUS ? env->depth += 1 : env->depth;
+	keycode == DEPTH_MOINS ? env->depth -= 1 : env->depth;
 }

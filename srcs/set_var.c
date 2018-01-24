@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 14:14:31 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:52:11 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:42:03 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static void		matrice_set(t_dot **tab, t_mat *mat, t_env *env)
 	mat->x++;
 }
 
-t_dot		**set_matrice(t_env *env)
+t_dot			**set_matrice(t_env *env)
 {
-	t_dot	**tab;
-	t_mat	mat;
+	t_dot		**tab;
+	t_mat		mat;
 
 	mat.i = 0;
 	mat.y = 0;
@@ -44,9 +44,9 @@ t_dot		**set_matrice(t_env *env)
 	return (tab);
 }
 
-void		set_var(t_env *env)
+void			set_var(t_env *env)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (env->dot[i])
@@ -54,10 +54,14 @@ void		set_var(t_env *env)
 		env->dot[i]->x_max = env->dot[i]->x + (env->dot[i]->x * env->zoom);
 		env->dot[i]->y_max = env->dot[i]->y + (env->dot[i]->y * env->zoom);
 		env->dot[i]->z_max = env->dot[i]->z * env->depth;
-		env->dot[i]->x_min = (env->dec_width * env->dot[i]->x_max) - (env->dec_height * env->dot[i]->y_max);
-		env->dot[i]->y_min = (env->dot[i]->z_max + ((env->dec_width / 2) * env->dot[i]->x_max) + ((env->dec_height / 2) * env->dot[i]->y_max));
-		env->dot[i]->x_min = ((env->dot[i]->x_min * cos(env->x_rot)) - (env->dot[i]->y_min * sin(env->x_rot)));
-		env->dot[i]->y_min = ((env->dot[i]->x_min * sin(env->x_rot)) + (env->dot[i]->y_min * cos(env->x_rot)));
+		env->dot[i]->x_min = (env->dec_width * env->dot[i]->x_max)
+		- (env->dec_height * env->dot[i]->y_max);
+		env->dot[i]->y_min = (env->dot[i]->z_max + ((env->dec_width / 2)
+		* env->dot[i]->x_max) + ((env->dec_height / 2) * env->dot[i]->y_max));
+		env->dot[i]->x_min = ((env->dot[i]->x_min * cos(env->x_rot))
+				- (env->dot[i]->y_min * sin(env->x_rot)));
+		env->dot[i]->y_min = ((env->dot[i]->x_min * sin(env->x_rot))
+				+ (env->dot[i]->y_min * cos(env->x_rot)));
 		env->dot[i]->x_min += env->x_move;
 		env->dot[i]->y_min += env->y_move;
 		i++;

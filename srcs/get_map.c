@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 16:44:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:07:06 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:36:34 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,34 +42,31 @@ static void		check_height(t_env *env, char *av)
 	close(fd);
 }
 
-void		get_map(t_env *env, char *av)
+void			get_map(t_env *env, char *av)
 {
-	char	*line;
-	int		fd;
-	int		i;
-	int		j;
+	t_var		var;
 
-	i = 0;
-	if (!(fd = open(av, O_RDONLY)))
+	var.i = 0;
+	if (!(var.fd = open(av, O_RDONLY)))
 		ft_error("Error: Open failed.\n", EXIT_FAILURE);
 	check_height(env, av);
 	env->map = (int **)ft_xmalloc(sizeof(int *) * env->height + 1);
-	while (get_next_line(fd, &line) >= 1)
+	while (get_next_line(var.fd, &var.line) >= 1)
 	{
-		j = 0;
-		env->u_map = ft_strsplit(line, ' ');
+		var.j = 0;
+		env->u_map = ft_strsplit(var.line, ' ');
 		check_width(env, env->u_map);
-		env->map[i] = (int *)ft_xmalloc(sizeof(int) * env->width + 1);
-		while (env->u_map[j])
+		env->map[var.i] = (int *)ft_xmalloc(sizeof(int) * env->width + 1);
+		while (env->u_map[var.j])
 		{
-			env->map[i][j] = ft_atoi(env->u_map[j]);
-			ft_strdel(&(env->u_map[j]));
-			j++;
+			env->map[var.i][var.j] = ft_atoi(env->u_map[var.j]);
+			ft_strdel(&(env->u_map[var.j]));
+			var.j++;
 		}
-		i++;
-		ft_strdel(&line);
+		var.i++;
+		ft_strdel(&var.line);
 	}
-	env->map[i] = NULL;
-	ft_strdel(&line);
-	close(fd);
+	env->map[var.i] = NULL;
+	ft_strdel(&var.line);
+	close(var.fd);
 }

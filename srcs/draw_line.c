@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 15:13:29 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:51:40 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:30:17 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ static void		draw_line(t_dot *m1, t_dot *m2, t_env *env)
 	}
 }
 
-void		draw(t_env *env)
+void			draw(t_env *env)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (env->dot[i])

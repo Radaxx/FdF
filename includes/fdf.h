@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:49:30 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 15:54:11 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/24 16:33:14 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,20 @@
 # define DOWN_ARROW 126
 # define ZOOM_PLUS 69
 # define ZOOM_MOINS 78
+# define DEPTH_PLUS 121
+# define DEPTH_MOINS 116
 
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
+
+typedef struct		s_var
+{
+	char			*line;
+	int				fd;
+	int				i;
+	int				j;
+}					t_var;
 
 typedef struct		s_line
 {

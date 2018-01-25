@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:23:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 16:30:31 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/25 13:19:50 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void		var_set(t_env *env)
 	env->color_1 = WHITE;
 	env->color_2 = BLUE;
 	env->zoom = 20;
-	env->x_move = 1000;
-	env->y_move = 450;
+	env->x_move = WIDTH / 2;
+	env->y_move = HEIGHT / 2;
 	env->depth = -3;
 	env->dec_width = 1;
 	env->dec_height = 2;
@@ -59,7 +59,7 @@ int				main(int ac, char **av)
 	get_map(&env, av[1]);
 	env.dot = set_matrice(&env);
 	set_var(&env);
-	mlx_key_hook(env.win, key_hook, &env);
+	mlx_hook(env.win, 2, 3, key_hook, &env);
 	mlx_expose_hook(env.win, expose_func, &env);
 	mlx_loop(env.mlx);
 	return (0);

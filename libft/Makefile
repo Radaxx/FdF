@@ -6,7 +6,7 @@
 #    By: aparabos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 12:06:40 by aparabos          #+#    #+#              #
-#    Updated: 2018/01/24 10:37:27 by aparabos         ###   ########.fr        #
+#    Updated: 2018/01/28 15:07:47 by aparabos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ RM = rm -rf
 FLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 OPT = -c
+SUCCESS = \033[32m
 SRCS = ft_pow.c \
 	   ft_foreach.c \
 	   ft_sqrt.c \
@@ -95,14 +96,14 @@ $(NAME): $(OBJS)
 		@$(CC) $(OPT) $(FLAGS) $(SRCS)
 		@ar rc $(NAME) $(OBJS)
 		@ranlib $(NAME)
-		@echo "Compilation de la libft fini."
+		@echo "$(SUCCESS)$(NAME) - Compiled with success ✅"
 
 clean:
 		@$(RM) $(OBJS)
-		@echo "Suppression des fichiers objets."
+		@echo "$(SUCCESS)$(NAME) - Object files cleaned with success ✅"
 
 fclean: clean
 		@$(RM) $(NAME)
-		@echo "Suppression de l'executable."
+		@echo "$(SUCCESS)$(NAME) - Executable cleaned with success ✅"
 
 re: fclean all

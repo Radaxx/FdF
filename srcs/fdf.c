@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:23:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/25 13:19:50 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/28 17:00:18 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void		init_mlx(t_env *env)
 		ft_error("Error: MLX_NEW_WINDOW failed.\n", EXIT_FAILURE);
 }
 
-static void		var_set(t_env *env)
+void			var_set(t_env *env)
 {
 	env->color_1 = WHITE;
 	env->color_2 = BLUE;

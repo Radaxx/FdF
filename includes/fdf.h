@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:49:30 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/25 11:53:09 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/28 17:21:17 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define BLUE 0x0000FF
 
 # define ESCAPE 53
+# define LOW_ROT 43
+# define HIGH_ROT 47
 # define LEFT_ARROW 123
 # define RIGHT_ARROW 124
 # define UP_ARROW 125
@@ -96,6 +98,7 @@ typedef struct		s_env
 }					t_env;
 
 int					expose_func(t_env *env);
+void				var_set(t_env *env);
 void				reload_win(t_env *env);
 void				key_move(int keycode, t_env *env);
 void				get_map(t_env *env, char *av);

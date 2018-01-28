@@ -6,7 +6,7 @@
 #    By: aparabos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 14:14:39 by aparabos          #+#    #+#              #
-#    Updated: 2018/01/24 15:55:40 by aparabos         ###   ########.fr        #
+#    Updated: 2018/01/28 17:30:49 by aparabos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS = fdf.c \
 	   get_map.c \
 	   set_var.c \
 	   draw_line.c \
-	   key.c
+	   key.c \
+	   set_matrice.c
 SUCCES_COLOR = \033[32m
 .PHONY: all clean fclean re
 
@@ -36,16 +37,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 		@make $(LIB)
 		@$(CC) $(CCFLAGS) -o $(NAME) $(OBJS) -L $(D_LIB) -lft $(MLXFLAGS)
-		@echo "$(SUCCES_COLOR)$(NAME) - Compiled with Success"
+		@echo "$(SUCCES_COLOR)$(NAME) - Compiled with Success ✅"
 
 clean:
 		@make clean $(LIB)
-		@echo "$(SUCCES_COLOR)$(NAME) - Object file cleaned with success"
+		@echo "$(SUCCES_COLOR)$(NAME) - Object file cleaned with success ✅"
 		@$(RM) $(OBJS)
 
 fclean: clean
 		@make fclean $(LIB)
 		@$(RM) $(NAME)
-		@echo "$(SUCCES_COLOR)$(NAME) - Executable cleaned with success"
+		@echo "$(SUCCES_COLOR)$(NAME) - Executable cleaned with success ✅"
 
 re: fclean all

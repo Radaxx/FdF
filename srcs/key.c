@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:41:12 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 16:40:46 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/28 17:00:15 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void			key_move(int keycode, t_env *env)
 		free_map(env);
 		exit(0);
 	}
+	keycode == LOW_ROT ? env->x_rot -= 0.08 : env->x_rot;
+	keycode == HIGH_ROT ? env->x_rot += 0.08 : env->x_rot;
 	keycode == LEFT_ARROW ? env->x_move -= 20 : env->x_move;
 	keycode == RIGHT_ARROW ? env->x_move += 20 : env->x_move;
 	keycode == UP_ARROW ? env->y_move += 20 : env->y_move;

@@ -6,14 +6,12 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:49:30 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/29 12:06:16 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/29 13:10:17 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
-# define CHECK_OPEN(x) if (x == NULL) ft_error("Error: Open failed.");
 
 # define WIDTH 1920
 # define HEIGHT 1080

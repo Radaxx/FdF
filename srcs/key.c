@@ -6,25 +6,11 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/24 15:41:12 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/29 10:46:44 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/29 15:16:11 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void		free_map(t_env *env)
-{
-	int			i;
-
-	i = -1;
-	while (env->map[++i])
-		free(env->map[i]);
-	free(env->map);
-	i = -1;
-	while (env->dot[++i])
-		free(env->dot[i]);
-	free(env->dot);
-}
 
 void			reload_win(t_env *env)
 {
@@ -38,7 +24,6 @@ void			key_move(int keycode, t_env *env)
 	if (keycode == ESCAPE)
 	{
 		mlx_clear_window(env->mlx, env->win);
-		free_map(env);
 		exit(0);
 	}
 	keycode == LOW_ROT ? env->x_rot -= 0.05 : env->x_rot;

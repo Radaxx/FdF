@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/07 12:12:03 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/24 10:37:11 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/29 12:08:24 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-int					ft_error(char *str, int fd);
+int					ft_error(char *str);
 int					ft_pow(int nb, int n);
 int					ft_sqrt(int nb);
 int					ft_factorial(int nb);

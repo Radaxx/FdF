@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 11:23:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/28 17:00:18 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/01/29 12:09:21 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int		key_hook(int keycode, t_env *env)
 static void		init_mlx(t_env *env)
 {
 	if (!(env->mlx = mlx_init()))
-		ft_error("Error: MLX_INIT failed.\n", EXIT_FAILURE);
+		ft_error("Error: MLX_INIT failed.");
 	if (!(env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Fil de Fer")))
-		ft_error("Error: MLX_NEW_WINDOW failed.\n", EXIT_FAILURE);
+		ft_error("Error: MLX_NEW_WINDOW failed.");
 }
 
 void			var_set(t_env *env)
@@ -53,7 +53,7 @@ int				main(int ac, char **av)
 	t_env		env;
 
 	if (ac != 2)
-		ft_error("Usage: ./fdf <map>\n", EXIT_FAILURE);
+		ft_error("Usage: ./fdf <map>");
 	init_mlx(&env);
 	var_set(&env);
 	get_map(&env, av[1]);

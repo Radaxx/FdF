@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 16:44:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/29 15:20:06 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/02/02 14:17:35 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			get_map(t_env *env, char *av)
 	if ((var.fd = open(av, O_RDONLY)) == -1)
 		ft_error("Error: Open failed.");
 	check_height(env, av);
-	env->map = (int **)ft_xmalloc(sizeof(int *) * env->height);
+	env->map = (int **)ft_xmalloc(sizeof(int *) * env->height + 1);
 	while (get_next_line(var.fd, &var.line) >= 1)
 	{
 		var.j = 0;

@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/26 10:22:28 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/29 13:09:50 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/02/02 14:16:28 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_dot			**set_matrice(t_env *env)
 
 	mat.i = 0;
 	mat.y = 0;
-	tab = (t_dot **)ft_xmalloc(sizeof(t_dot *) * env->width * env->height);
+	tab = (t_dot **)ft_xmalloc(sizeof(t_dot) * env->width * env->height);
 	while (mat.y < env->height)
 	{
 		mat.x = 0;

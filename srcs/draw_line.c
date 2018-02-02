@@ -6,7 +6,7 @@
 /*   By: aparabos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/23 15:13:29 by aparabos          #+#    #+#             */
-/*   Updated: 2018/01/29 14:15:51 by aparabos         ###   ########.fr       */
+/*   Updated: 2018/02/02 14:18:02 by aparabos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void			draw(t_env *env)
 	i = 0;
 	while (env->dot[i])
 	{
-		if (env->dot[i]->z_max > 2 || env->dot[i]->z_max < (-2))
+		if (env->dot[i]->z_max > 1 || env->dot[i]->z_max < (-1))
 			env->dot[i]->color = env->color_2;
 		else
 			env->dot[i]->color = env->color_1;
